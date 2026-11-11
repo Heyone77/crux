@@ -39,7 +39,7 @@ export default class CruxElevationAppV2 extends HandlebarsApplicationMixin(Appli
             closeOnSubmit: false
         },
         window: {
-            title: "Elevation"
+            title: "crux.elevation.title"
         }
     };
 

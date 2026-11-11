@@ -4,7 +4,7 @@
                 class="crux__tab {{#if (eq @root.activeTab tab.id)}}is-active{{/if}}"
                 data-action="toggleTab"
                 data-tab="{{tab.id}}"
-                title="{{tab.label}}"
-                aria-label="{{tab.label}}"></button>
+                title="{{localize tab.label}}"
+                aria-label="{{localize tab.label}}"></button>
     {{/each}}
 </nav>

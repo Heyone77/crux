@@ -1,3 +1,14 @@
+export function localizeCruxSetting(key, setting) {
+    const path = suffix => `crux.config.${key}.${suffix}`;
+    const result = { ...setting, name: path('name') };
+    if (setting.hint !== undefined) result.hint = path('hint');
+    if (setting.choices) {
+        result.choices = Object.fromEntries(Object.entries(setting.choices).map(([value, label]) =>
+            [value, path(`choices.${value}`)]));
+    }
+    return result;
+}
+
 export function createCruxSettingDefinitions(CruxSettings) {
     return {
         "tray-mode": {

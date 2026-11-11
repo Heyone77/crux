@@ -1,4 +1,4 @@
-import { createCruxSettingDefinitions } from "./CruxSettingDefinitions.js";
+import { createCruxSettingDefinitions, localizeCruxSetting } from "./CruxSettingDefinitions.js";
 import CRUX_VISUAL_PRESETS from "./CruxVisualPresets.js";
 import * as CruxThemeVariables from "./CruxThemeVariables.js";
 
@@ -15,7 +15,7 @@ export default class CruxSettings {
         for (const [key, setting] of Object.entries(this.SETTINGS)) {
             const originalOnChange = setting.onChange;
             game.settings.register("crux", key, {
-                ...setting,
+                ...localizeCruxSetting(key, setting),
                 onChange: async (value) => {
                     await originalOnChange?.(value);
                     if (key === "font-family" || key === "custom-font-family") {

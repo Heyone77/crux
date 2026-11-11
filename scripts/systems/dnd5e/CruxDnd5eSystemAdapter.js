@@ -291,17 +291,8 @@ export default class CruxDnd5eSystemAdapter {
     }
 
     getMovementLabel(action) {
-        return {
-            speed: "SPD",
-            walk: "WLK",
-            burrow: "BRRW",
-            fly: "FLY",
-            swim: "SWM",
-            climb: "CLMB",
-            crawl: "CRWL",
-            jump: "JMP",
-            blink: "BLNK"
-        }[action] ?? String(action ?? "SPD").toUpperCase();
+        const key = `crux.ui.movement-short.${action}`;
+        return game.i18n.has(key) ? game.i18n.localize(key) : String(action ?? "SPD").toUpperCase();
     }
 
     getMovementAmount(action, movement) {
@@ -337,19 +328,19 @@ export default class CruxDnd5eSystemAdapter {
 
         return {
             creatureType: {
-                label: typeLabel || "Creature Type",
+                label: typeLabel || game.i18n.localize("crux.ui.creature-type"),
                 subtitle: subtype || raceItem?.name || "",
                 img: CONFIG.DND5E.creatureTypes?.[typeValue]?.icon || raceItem?.img || "icons/svg/mystery-man.svg",
                 uuid: raceItem?.uuid
             },
             species: {
-                label: raceItem?.name || "Species",
+                label: raceItem?.name || game.i18n.localize("crux.ui.species"),
                 subtitle: sizeLabel || "",
                 img: raceItem?.img || "icons/svg/mystery-man.svg",
                 uuid: raceItem?.uuid
             },
             background: {
-                label: backgroundItem?.name || "Background",
+                label: backgroundItem?.name || game.i18n.localize("crux.ui.background"),
                 subtitle: "",
                 img: backgroundItem?.img || "icons/svg/book.svg",
                 uuid: backgroundItem?.uuid
@@ -374,7 +365,9 @@ export default class CruxDnd5eSystemAdapter {
             { id: "tools", label: "Tools", icon: "fas fa-toolbox", tags: this._getTraitTags(traits.toolProf, CONFIG.DND5E.toolProficiencies) },
             { id: "languages", label: "Languages", icon: "fas fa-flag", tags: this._getTraitTags(traits.languages, CONFIG.DND5E.languages) }
         ];
-        return categories.filter(category => category.tags.length);
+        return categories.filter(category => category.tags.length).map(category => ({
+            ...category, label: game.i18n.localize(`crux.ui.${category.id}`)
+        }));
     }
 
     rollAbility(actor, ability, event) {
@@ -499,18 +492,18 @@ export default class CruxDnd5eSystemAdapter {
         const details = actor.system.details ?? {};
         const type = details.type ?? {};
         const typeValue = type.value ?? type;
-        const typeLabel = this._localizeLabel(type.label ?? CONFIG.DND5E.creatureTypes?.[typeValue]?.label ?? typeValue ?? "Creature Type");
+        const typeLabel = this._localizeLabel(type.label ?? CONFIG.DND5E.creatureTypes?.[typeValue]?.label ?? typeValue ?? "crux.ui.creature-type");
         const subtype = type.subtype ?? "";
         const size = actor.system.traits?.size;
-        const sizeLabel = this._localizeLabel(CONFIG.DND5E.actorSizes?.[size]?.label ?? size ?? "Size");
+        const sizeLabel = this._localizeLabel(CONFIG.DND5E.actorSizes?.[size]?.label ?? size ?? "crux.ui.size");
         return {
             creatureType: {
                 label: typeLabel || "Creature Type",
                 subtitle: subtype,
                 img: CONFIG.DND5E.creatureTypes?.[typeValue]?.icon || "icons/svg/mystery-man.svg"
             },
-            species: { label: sizeLabel || "Size", subtitle: "Size", img: "icons/svg/upgrade.svg" },
-            background: { label: details.alignment || "Alignment", subtitle: "Alignment", img: "icons/svg/aura.svg" }
+            species: { label: sizeLabel || game.i18n.localize("crux.ui.size"), subtitle: game.i18n.localize("crux.ui.size"), img: "icons/svg/upgrade.svg" },
+            background: { label: details.alignment || game.i18n.localize("crux.ui.alignment"), subtitle: game.i18n.localize("crux.ui.alignment"), img: "icons/svg/aura.svg" }
         };
     }
 
@@ -530,7 +523,9 @@ export default class CruxDnd5eSystemAdapter {
             { id: "habitat", label: "Habitat", icon: "fas fa-mountain", tags: this._getTraitTags(actorData.details?.habitat, CONFIG.DND5E.habitats) },
             { id: "treasure", label: "Treasure", icon: "fas fa-gem", tags: this._getTraitTags(actorData.details?.treasure, CONFIG.DND5E.treasure) }
         ];
-        return categories.filter(category => category.tags.length);
+        return categories.filter(category => category.tags.length).map(category => ({
+            ...category, label: game.i18n.localize(`crux.ui.${category.id}`)
+        }));
     }
 
     _calculateUsesForItem(item) {
@@ -725,11 +720,12 @@ export default class CruxDnd5eSystemAdapter {
         const speeds = movement.speeds ?? movement;
         const speed = movement.speed ?? speeds.walk;
         const tags = [];
-        if (speed) tags.push({ label: "Speed", value: speed });
+        if (speed) tags.push({ label: game.i18n.localize("crux.ui.speed"), value: speed });
         for (const key of ["walk", "burrow", "climb", "fly", "swim"]) {
             const value = Number(speeds[key]) || 0;
             if (!value || value === speed && key === "walk") continue;
-            tags.push({ label: key.titleCase?.() ?? key, value });
+            const labelKey = `crux.ui.movement.${key}`;
+            tags.push({ label: game.i18n.has(labelKey) ? game.i18n.localize(labelKey) : key.titleCase?.() ?? key, value });
         }
         if (movement.special) tags.push({ label: movement.special });
         return this._uniqueTags(tags);

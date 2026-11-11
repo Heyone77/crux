@@ -20,7 +20,7 @@
                 <span class="crux__actor-exhaustion-dot {{#unless active}}is-empty{{/unless}}"></span>
             {{/each}}
         </div>
-        <div class="crux__actor-death-saves" title="Death Saves">
+        <div class="crux__actor-death-saves" title="{{localize "crux.ui.death-saves"}}">
             <div class="crux__actor-death-row crux__actor-death-row--success">
                 {{#each (cruxSlots actorStats.death.success 3) as |active|}}
                     <span class="crux__actor-death-dot {{#unless active}}is-empty{{/unless}}"></span>

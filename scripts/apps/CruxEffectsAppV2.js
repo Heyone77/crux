@@ -34,7 +34,7 @@ export default class CruxEffectsAppV2 extends HandlebarsApplicationMixin(Applica
             closeOnSubmit: false
         },
         window: {
-            title: "Token Effects"
+            title: "crux.status-effects"
         }
     };
 

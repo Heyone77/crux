@@ -5,14 +5,14 @@ export default class CruxPanelRegistry {
         if (this.#panels.size) return;
         this.#setPanel({
             id: "actions",
-            label: "Actions",
+            label: "crux.ui.actions",
             order: 100,
             partial: "crux-dnd5e-action-panel",
             core: true
         }, { moduleId: "crux" });
         this.#setPanel({
             id: "actor",
-            label: "Actor",
+            label: "crux.ui.actor",
             order: 200,
             partial: "crux-dnd5e-actor-panel",
             core: true

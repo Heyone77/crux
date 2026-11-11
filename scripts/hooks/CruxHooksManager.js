@@ -270,8 +270,8 @@ export default class CruxHooksManager {
 
     static #registerKeybindings() {
         game.keybindings.register("crux", "toggle-tray", {
-            name: "Toggle Tray",
-            hint: "Toggle the visibility of the action tray",
+            name: "crux.keybindings.toggle-tray",
+            hint: "crux.keybindings.toggle-tray-hint",
             editable: [
                 { key: "KeyE", modifiers: ["Shift"]}
             ],
@@ -289,8 +289,8 @@ export default class CruxHooksManager {
             }
         });
         game.keybindings.register("crux", "open-actor-panel", {
-            name: "Open Actor Panel",
-            hint: "Open the Crux tray with the Actor panel visible",
+            name: "crux.keybindings.open-actor-panel",
+            hint: "crux.keybindings.open-actor-panel-hint",
             editable: [
                 { key: "KeyC", modifiers: ["Alt"]}
             ],
@@ -308,8 +308,8 @@ export default class CruxHooksManager {
             }
         });
         game.keybindings.register("crux", "toggle-skills", {
-            name: "Toggle Skills",
-            hint: "Toggle the skills list visibility",
+            name: "crux.keybindings.toggle-skills",
+            hint: "crux.keybindings.toggle-skills-hint",
             editable: [
                 { key: "KeyK", modifiers: ["Shift"]}
             ],

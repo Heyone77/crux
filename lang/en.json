@@ -92,7 +92,10 @@
             "toggle-skills": "Toggle skills open or closed",
             "toggle-skills-hint": "The skill list placement can be selected in the module settings. When using a collapsible list, if the panel is already open, this will toggle skills open and closed and if the tray is not open, it will be opened with skills visible. When the skill list is placed at the bottom, this key will scroll to reveal the skill list.",
             "item-drag": "Hold to drag items onto targets",
-            "item-drag-hint": "While holding this key, hover over an item and drag it onto a token to use the item on that target"
+            "item-drag-hint": "While holding this key, hover over an item and drag it onto a token to use the item on that target",
+            "toggle-tray-hint": "Toggle the visibility of the action tray",
+            "open-actor-panel": "Open Actor Panel",
+            "open-actor-panel-hint": "Open the Crux tray with the Actor panel visible"
         },
         "settings": {
             "tray-display": "Tray display mode",
@@ -165,6 +168,324 @@
         "item-context": {
             "show": "Show in Crux",
             "hide": "Hide in Crux"
+        },
+        "ui": {
+            "skills": "Skills",
+            "actions": "Actions",
+            "actor": "Actor",
+            "hit-points": "Hit Points",
+            "hit-dice": "Hit Dice",
+            "saving-throws": "Saving Throws",
+            "initiative": "INIT",
+            "proficiency": "PROF",
+            "armor-class": "AC",
+            "health": "HP",
+            "passive-perception": "P. Perc.",
+            "creature-type": "Creature Type",
+            "species": "Species",
+            "background": "Background",
+            "size": "Size",
+            "alignment": "Alignment",
+            "senses": "Senses",
+            "resistances": "Resistances",
+            "immunities": "Immunities",
+            "vulnerabilities": "Vulnerabilities",
+            "armor": "Armor",
+            "weapons": "Weapons",
+            "tools": "Tools",
+            "languages": "Languages",
+            "speed": "Speed",
+            "damage-immunities": "Damage Immunities",
+            "condition-immunities": "Condition Immunities",
+            "damage-modification": "Damage Modification",
+            "habitat": "Habitat",
+            "treasure": "Treasure",
+            "item-settings": "Crux Tray Settings",
+            "tray-visibility": "Tray Visibility",
+            "system-default": "System Default",
+            "force-show": "Force Show",
+            "force-hidden": "Force Hidden",
+            "tray-visibility-hint": "Control how this item appears in the Crux tray.",
+            "rider-activity": "Rider Activity",
+            "rider-hint": "Mark this activity as a rider that should not appear in the item use menu.",
+            "movement-title": "Movement Type",
+            "death-saves": "Death Saves",
+            "roll-death-save": "Roll Death Saving Throw",
+            "flip-card": "Flip actor card",
+            "movement": {
+                "walk": "Walk",
+                "burrow": "Burrow",
+                "fly": "Fly",
+                "swim": "Swim",
+                "climb": "Climb",
+                "crawl": "Crawl",
+                "jump": "Jump",
+                "blink": "Blink"
+            },
+            "movement-short": {
+                "speed": "SPD",
+                "walk": "WLK",
+                "burrow": "BRRW",
+                "fly": "FLY",
+                "swim": "SWM",
+                "climb": "CLMB",
+                "crawl": "CRWL",
+                "jump": "JMP",
+                "blink": "BLNK"
+            }
+        },
+        "config": {
+            "tray-mode": {
+                "name": "Tray Display Mode",
+                "hint": "Toggle - only hide tray when toggled (using hot key) / When token selected - Hide the tray if no tokens are selected, show otherwise / Automatic - Toggle for players, When token selected for the GM",
+                "choices": {
+                    "auto": "Automatic",
+                    "always": "Always Show",
+                    "manual": "Toggle"
+                }
+            },
+            "assume-default-character": {
+                "name": "Assume Default Character",
+                "hint": "When no other token is selected, show the tray for the user's default character (usually only set for players). This can help with scenes with no tokens (or a generic party token) visible."
+            },
+            "allow-player-scene-elevation": {
+                "name": "Allow Players Scene Elevation",
+                "hint": "Allow players to use Scene elevation mode in the Crux elevation flyout. Players never see the scene level selection list."
+            },
+            "show-favorites-section": {
+                "name": "Show Favorites Section",
+                "hint": "Display the Favorites section in the tray."
+            },
+            "show-equipped-section": {
+                "name": "Show Equipped Section",
+                "hint": "Display the Equipped section in the tray."
+            },
+            "show-features-section": {
+                "name": "Show Features Section",
+                "hint": "Display the Features section in the tray."
+            },
+            "show-spells-section": {
+                "name": "Show Spells Section",
+                "hint": "Display the Spells section in the tray."
+            },
+            "show-inventory-section": {
+                "name": "Show Inventory Section",
+                "hint": "Display the Inventory section in the tray."
+            },
+            "use-tidy5e-sections": {
+                "name": "Use Tidy 5e Sheet Sections",
+                "hint": "When enabled, recognizes and uses Tidy 5e Sheet sections instead of standard Crux sections."
+            },
+            "show-quantity": {
+                "name": "Show Quantity (Q)",
+                "hint": "Display the quantity indicator for items in the tray."
+            },
+            "show-uses": {
+                "name": "Show Uses (U)",
+                "hint": "Display the uses indicator for items in the tray."
+            },
+            "show-no-uses": {
+                "name": "Show Items With No Uses Left",
+                "hint": "Display items in the tray even when they have no remaining uses."
+            },
+            "show-unprepared-cantrips": {
+                "name": "Show Unprepared Cantrips",
+                "hint": "Show cantrips in the tray even if they are not prepared."
+            },
+            "show-all-npc-items": {
+                "name": "Show All NPC Items",
+                "hint": "Display all items for NPCs in the tray, not just passive ones."
+            },
+            "show-spell-dots": {
+                "name": "Show Spell Slot Dots",
+                "hint": "Display dots indicating available spell slots."
+            },
+            "show-spell-fractions": {
+                "name": "Show Spell Slot Numbers",
+                "hint": "Display numerical fractions showing available/maximum spell slots."
+            },
+            "sort-alphabetic": {
+                "name": "Sort Items Alphabetically",
+                "hint": "Sort items in alphabetical order rather than by their default sorting."
+            },
+            "exclude-container-items": {
+                "name": "Exclude Items Within Containers",
+                "hint": "If enabled, items stored inside container items (like backpacks or pouches) will not be displayed in the Crux tray"
+            },
+            "skill-mode": {
+                "name": "Skill List Location",
+                "hint": "If 'Collapsible at the top' is selected, the skill toggle hot key (in control settings) can be used to toggle the skill list open and closed, opening the panel if needed. If skills are at the bottom of the panel, the hotkey automatically scrolls to reveal them.",
+                "choices": {
+                    "none": "None",
+                    "dropdown": "Collapsible at the top",
+                    "append": "At the bottom of the panel"
+                }
+            },
+            "skills-expanded": {
+                "name": "Skills Section Default State",
+                "hint": "Choose whether the Skills section starts expanded or collapsed by default",
+                "choices": {
+                    "open": "Open",
+                    "collapsed": "Collapsed"
+                }
+            },
+            "main-sections-expanded": {
+                "name": "Main Sections Default State",
+                "hint": "Choose whether the main sections (like Features, Spells, etc.) start expanded or collapsed by default",
+                "choices": {
+                    "open": "Open",
+                    "collapsed": "Collapsed"
+                }
+            },
+            "sub-sections-expanded": {
+                "name": "Sub-Sections Default State",
+                "hint": "Choose whether sub-sections (like spell levels) start expanded or collapsed by default",
+                "choices": {
+                    "open": "Open",
+                    "collapsed": "Collapsed"
+                }
+            },
+            "icon-size": {
+                "name": "Icon Size",
+                "hint": "Set the size of icons in the tray.",
+                "choices": {
+                    "small": "Small",
+                    "medium": "Medium",
+                    "large": "Large"
+                }
+            },
+            "tray-size": {
+                "name": "Tray Size",
+                "hint": "Set the overall size of the tray interface."
+            },
+            "tab-height-multiplier": {
+                "name": "Tab Height Multiplier",
+                "hint": "Adjust the vertical height of Crux tab buttons."
+            },
+            "health-overlay-enabled": {
+                "name": "Enable Health Overlay",
+                "hint": "Show a dynamic health overlay on character portraits"
+            },
+            "health-overlay-direction": {
+                "name": "Health Overlay Direction",
+                "hint": "Choose whether the health overlay fills up or down",
+                "choices": {
+                    "up": "Fill Up",
+                    "down": "Fill Down"
+                }
+            },
+            "font-family": {
+                "name": "Font Family",
+                "hint": "Choose the font family used throughout the interface",
+                "choices": {
+                    "modesto": "Modesto Condensed (Default)",
+                    "signika": "Signika",
+                    "roboto": "Roboto Slab",
+                    "carolingian-ui": "Carolingian UI",
+                    "custom": "Custom Font"
+                }
+            },
+            "custom-font-family": {
+                "name": "Custom Font Family",
+                "hint": "Specify a custom font family (only used when Font Family is set to 'Custom Font')"
+            },
+            "global-font-size-multiplier": {
+                "name": "Global Font Size Multiplier",
+                "hint": "Adjust the size of all text in the interface. 1.0 is the recommended default scale."
+            },
+            "global-font-scale-rebased": {
+                "name": "Global Font Scale Rebased"
+            },
+            "content-text-size-multiplier": {
+                "name": "Content Text Size Multiplier",
+                "hint": "Adjust the size of content text elements like item descriptions, abilities, and skills while maintaining proportions (0.5 = half size, 1.0 = default, 1.5 = 50% larger)"
+            },
+            "character-name-size-multiplier": {
+                "name": "Character Name Size Multiplier",
+                "hint": "Adjust the size of character names in the interface (0.5 = half size, 1.0 = default, 1.5 = 50% larger). This setting is independent of other font size settings."
+            },
+            "actor-ability-text-size-multiplier": {
+                "name": "Actor Ability Text Size Multiplier",
+                "hint": "Adjust only the Actor Panel ability button text size. Use this if ability buttons overflow the portrait area."
+            },
+            "visual-preset": {
+                "name": "Visual Preset",
+                "hint": "Choose a visual style for Crux. Changing this also moves Panel Opacity to the preset default.",
+                "choices": {
+                    "foundry": "Foundry Dark",
+                    "foundry-light": "Foundry Light",
+                    "black-glass": "Black Glass",
+                    "crimson-knight": "Crimson Knight",
+                    "low-lantern": "Low Lantern",
+                    "arcane-glass": "Arcane Glass",
+                    "silver-steel": "Silver Steel",
+                    "emerald-ward": "Emerald Ward",
+                    "paper-lantern": "Paper Lantern",
+                    "sherbet": "Sherbet",
+                    "carolingian-teal": "Carolingian Teal",
+                    "royal-blood": "Royal Blood",
+                    "dark-sorcery": "Dark Sorcery",
+                    "grass-and-stone": "Grass and Stone",
+                    "gold-and-chocolate": "Gold and Chocolate",
+                    "pumpkin-patch": "Pumpkin Patch",
+                    "plum-purple": "Plum Purple",
+                    "gambits-blue": "Gambit's Blue"
+                }
+            },
+            "panel-opacity": {
+                "name": "Panel Opacity",
+                "hint": "Adjust the background opacity of the Crux panel backdrop."
+            },
+            "element-opacity": {
+                "name": "Element Opacity",
+                "hint": "Adjust the background opacity of Crux cards, buttons, tabs, and boxed controls."
+            },
+            "panel-blur": {
+                "name": "Panel Blur",
+                "hint": "Adjust the glass blur behind the Crux panel. 0 disables blur."
+            },
+            "taskbar-compatibility": {
+                "name": "Taskbar Compatibility",
+                "hint": "Enable compatibility with the Taskbar module (Requires Refresh)"
+            },
+            "empty-tray-icon": {
+                "name": "Empty Tray Icon",
+                "hint": "Choose the icon to display when the tray is empty",
+                "choices": {
+                    "fa-thin fa-dragon": "Dragon",
+                    "fa-brands fa-d-and-d": "D&D",
+                    "fa-thin fa-helmet-battle": "Helm",
+                    "fa-thin fa-swords": "Swords",
+                    "fa-thin fa-staff": "Staff",
+                    "fa-thin fa-wand": "Wand",
+                    "fa-thin fa-paw-claws": "Paw",
+                    "fa-thin fa-mandolin": "Mandolin",
+                    "fa-thin fa-bow-arrow": "Bow",
+                    "fa-thin fa-axe-battle": "Battle-Axe",
+                    "fa-thin fa-mace": "Mace",
+                    "fa-thin fa-hammer-war": "Warhammer",
+                    "fa-thin fa-dagger": "Dagger",
+                    "fa-thin fa-hand-fist": "Fist",
+                    "fa-thin fa-fire-flame": "Pyro",
+                    "fa-thin fa-flask-round-potion": "Potion",
+                    "fa-thin fa-scroll-old": "Scroll",
+                    "fa-thin fa-dungeon": "Dungeon",
+                    "fa-thin fa-eye-evil": "The-Eye",
+                    "fa-thin fa-dice-d20": "D20"
+                }
+            },
+            "auto-select-first-activity": {
+                "name": "Auto-select First Activity",
+                "hint": "When enabled, Crux will automatically use the first activity without showing the activity selection dialog. When disabled, the system handles activity selection according to its own rules."
+            },
+            "clear-targets-on-drag-target": {
+                "name": "Clear Targets on Drag Target",
+                "hint": "When enabled, dragging a Crux item onto a token clears previous targets before targeting the new token."
+            },
+            "process-compendium-items": {
+                "name": "Process Compendium Items",
+                "hint": "When enabled, Crux will process items in unlocked compendiums to set tray visibility flags. Disable this if you experience performance issues during startup."
+            }
         }
-    }    
+    }
 }

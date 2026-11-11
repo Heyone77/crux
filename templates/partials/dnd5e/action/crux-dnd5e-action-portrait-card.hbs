@@ -1,4 +1,4 @@
-<div class="crux__portrait" title="{{#unless (gt actor.system.attributes.hp.value 0)}}Roll Death Saving Throw{{else}}Flip actor card{{/unless}}">
+<div class="crux__portrait" title="{{#unless (gt actor.system.attributes.hp.value 0)}}{{localize "crux.ui.roll-death-save"}}{{else}}{{localize "crux.ui.flip-card"}}{{/unless}}">
     <div class="crux__portrait-inner">
         <div class="crux__portrait-front {{#if (gt (calculateHealthOverlay actor.system.attributes.hp.value actor.system.attributes.hp.max) 50)}}breathe{{/if}}">
             {{#if (lookup @root.settings "health-overlay-enabled")}}
@@ -20,15 +20,15 @@
         <div class="crux__portrait-back">
             <div class="crux__stat-row">
                 <span class="crux__svg-icon crux__svg-icon--shield" role="img" aria-label="AC"></span>
-                <span>AC: {{actor.system.attributes.ac.value}}</span>
+                <span>{{localize "crux.ui.armor-class"}}: {{actor.system.attributes.ac.value}}</span>
             </div>
             <div class="crux__stat-row">
                 <span class="crux__svg-icon crux__svg-icon--hearts" role="img" aria-label="HP"></span>
-                <span>HP: {{actor.system.attributes.hp.value}}/{{actor.system.attributes.hp.max}}</span>
+                <span>{{localize "crux.ui.health"}}: {{actor.system.attributes.hp.value}}/{{actor.system.attributes.hp.max}}</span>
             </div>
             <div class="crux__stat-row">
                 <span class="crux__svg-icon crux__svg-icon--eye-target" role="img" aria-label="Passive Perception"></span>
-                <span>P. Perc.: {{add actor.system.skills.prc.total 10}}</span>
+                <span>{{localize "crux.ui.passive-perception"}}: {{add actor.system.skills.prc.total 10}}</span>
             </div>
 
             <div class="crux__rest-buttons">

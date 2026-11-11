@@ -1,6 +1,6 @@
 <div class="crux__actor-vitals">
     <div class="crux__actor-vital">
-        <span>Hit Points</span>
+        <span>{{localize "crux.ui.hit-points"}}</span>
         <div class="crux__actor-bar crux__actor-bar--hp {{#if actorStats.hp.temp}}has-temp-hp{{/if}}">
             <div class="crux__actor-bar-main" data-action="toggleHpEditor" data-hp-field="value" data-edit="false">
                 <div class="crux__actor-bar-fill crux__actor-bar-fill--hp" style="width: {{actorStats.hp.pct}}%"></div>
@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="crux__actor-vital">
-        <span>Hit Dice</span>
+        <span>{{localize "crux.ui.hit-dice"}}</span>
         <div class="crux__actor-bar crux__actor-bar--hd">
             <div class="crux__actor-bar-fill crux__actor-bar-fill--hd" style="width: {{actorStats.hitDice.pct}}%"></div>
             <strong>{{actorStats.hitDice.value}} / {{actorStats.hitDice.max}}</strong>

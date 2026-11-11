@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import Injector from "../scripts/utils/CruxItemFormInjector.js";
 
+globalThis.game = { i18n: { localize: key => key } };
+
 // DOM host boundary: distinguish a navigation link from a tab's content pane.
 // A broad [data-tab] lookup deliberately returns the link, as in a partial render.
 function sheetFixture({ pane = "core", value = "hide" } = {}) {

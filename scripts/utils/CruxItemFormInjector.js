@@ -77,11 +77,11 @@ export default class CruxItemFormInjector {
 
         const checkboxHtml = `
             <div class="form-group rider-activity-toggle">
-                <label>Rider Activity</label>
+                <label>${game.i18n.localize("crux.ui.rider-activity")}</label>
                 <div class="form-fields">
                     <dnd5e-checkbox name="flags.dnd5e.riders.activity" ${checkedAttr} tabindex="0"></dnd5e-checkbox>
                 </div>
-                <p class="hint">Mark this activity as a "rider" that should not appear in the item use menu.</p>
+                <p class="hint">${game.i18n.localize("crux.ui.rider-hint")}</p>
             </div>`;
 
         behaviorFieldset.insertAdjacentHTML('beforeend', checkboxHtml);
@@ -140,17 +140,17 @@ export default class CruxItemFormInjector {
 
         const fieldsetHtml = `
             <fieldset class="crux-tray-settings">
-                <legend>Crux Tray Settings</legend>
+                <legend>${game.i18n.localize("crux.ui.item-settings")}</legend>
                 <div class="form-group crux-tray-visibility">
-                    <label>Tray Visibility</label>
+                    <label>${game.i18n.localize("crux.ui.tray-visibility")}</label>
                     <div class="form-fields">
-                        <select name="flags.crux.trayVisibility" aria-label="Tray Visibility">
-                            <option value="default" ${visibilitySetting === "default" ? "selected" : ""}>System Default</option>
-                            <option value="show" ${visibilitySetting === "show" ? "selected" : ""}>Force Show</option>
-                            <option value="hide" ${visibilitySetting === "hide" ? "selected" : ""}>Force Hidden</option>
+                        <select name="flags.crux.trayVisibility" aria-label="${game.i18n.localize("crux.ui.tray-visibility")}">
+                            <option value="default" ${visibilitySetting === "default" ? "selected" : ""}>${game.i18n.localize("crux.ui.system-default")}</option>
+                            <option value="show" ${visibilitySetting === "show" ? "selected" : ""}>${game.i18n.localize("crux.ui.force-show")}</option>
+                            <option value="hide" ${visibilitySetting === "hide" ? "selected" : ""}>${game.i18n.localize("crux.ui.force-hidden")}</option>
                         </select>
                     </div>
-                    <p class="hint">Control how this item appears in the Crux tray.</p>
+                    <p class="hint">${game.i18n.localize("crux.ui.tray-visibility-hint")}</p>
                 </div>
             </fieldset>`;
 

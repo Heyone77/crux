@@ -38,7 +38,7 @@ export default class CruxMovementAppV2 extends HandlebarsApplicationMixin(Applic
             closeOnSubmit: false
         },
         window: {
-            title: "Movement Type"
+            title: "crux.ui.movement-title"
         }
     };
 
@@ -55,7 +55,7 @@ export default class CruxMovementAppV2 extends HandlebarsApplicationMixin(Applic
             {
                 id: "",
                 action: null,
-                label: "Speed",
+                label: game.i18n.localize("crux.ui.speed"),
                 title: game.i18n.localize("HUD.SelectMovementAction") || "Default Movement",
                 amount: this._formatAmount(this._getMovementAmount(null)),
                 icon: "fa-solid fa-angles-right",
@@ -92,16 +92,8 @@ export default class CruxMovementAppV2 extends HandlebarsApplicationMixin(Applic
     }
 
     _getMovementLabel(action) {
-        return {
-            walk: "Walk",
-            burrow: "Burrow",
-            fly: "Fly",
-            swim: "Swim",
-            climb: "Climb",
-            crawl: "Crawl",
-            jump: "Jump",
-            blink: "Blink"
-        }[action] ?? String(action ?? "SPD").toUpperCase();
+        const key = `crux.ui.movement.${action}`;
+        return game.i18n.has(key) ? game.i18n.localize(key) : String(action ?? "SPD").toUpperCase();
     }
 
     _getMovementAmount(action) {

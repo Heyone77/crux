@@ -2,6 +2,11 @@
 
 All notable changes to the CRUX module will be documented in this file.
 
+## [2.2.7]
+
+### Added
+- Added Russian and Polish localization for Crux interface labels, settings, item controls and keybindings.
+
 ## [2.2.6] - Heyone77 fork
 
 ### Fixed

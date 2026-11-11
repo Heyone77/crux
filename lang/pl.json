@@ -1,0 +1,491 @@
+{
+  "crux.warning.dropOnToken": "Przeciągnij przedmiot na żeton, aby go użyć",
+  "crux.warning.holdTargetKey": "Przytrzymaj klawisz celowania podczas przeciągania przedmiotu",
+  "crux.warning.drop-no-permission": "Nie masz uprawnień do dodawania przedmiotów do {name}.",
+  "crux.warning.drop-item-unresolved": "Crux nie może odnaleźć przeciągniętego przedmiotu.",
+  "crux.warning.drop-select-one-actor": "Wybierz jedną postać przed przeciągnięciem przedmiotu na panel Crux.",
+  "crux.warning.drop-no-active-actor": "Nie wybrano postaci, której można dodać przedmiot.",
+  "crux.error.itemNotFound": "Nie znaleziono przeciągniętego przedmiotu",
+  "crux.error.useItemFailed": "Nie udało się użyć przedmiotu na celu",
+  "crux": {
+    "action": {
+      "dash": "Zryw",
+      "disengage": "Odwrót",
+      "dodge": "Unik",
+      "grapple": "Chwyt",
+      "hide": "Ukrycie",
+      "shove": "Odepchnięcie"
+    },
+    "short-rest": "Krótki odpoczynek",
+    "long-rest": "Długi odpoczynek",
+    "control-icon": "Otwórz lub zamknij panel Crux",
+    "end-turn": "Zakończ turę",
+    "roll-initiative": "Rzuć inicjatywę!",
+    "add-to-combat": "Dodaj do walki",
+    "set-elevation": "Zmień wysokość",
+    "open-token": "Konfiguruj żeton",
+    "toggle-target": "Wybierz cel",
+    "drag-target": "Wybierz cel przeciągnięciem",
+    "status-effects": "Stany",
+    "expand-collapse": "Rozwiń lub zwiń wszystkie sekcje",
+    "elevation": {
+      "title": "Zmień wysokość żetonu",
+      "label": "Podaj wysokość",
+      "elevation": "Wysokość",
+      "level": "poziom",
+      "scene": "scena",
+      "set": "Zastosuj",
+      "cancel": "Anuluj"
+    },
+    "action-type": {
+      "action": "Akcja",
+      "bonus": "Akcja dodatkowa",
+      "reaction": "Reakcja",
+      "legendary": "Akcja legendarna",
+      "lair": "Akcja legowiska",
+      "special": "Akcja specjalna"
+    },
+    "flag": {
+      "bonus": "B",
+      "bonus-title": "Akcja dodatkowa",
+      "reaction": "R",
+      "reaction-title": "Reakcja",
+      "ritual": "Rt",
+      "ritual-title": "Rytuał",
+      "concentration": "K",
+      "concentration-title": "Koncentracja",
+      "legendary": "L",
+      "legendary-title": "Akcja legendarna",
+      "unprepared": "N",
+      "unprepared-title": "Nieprzygotowane zaklęcie"
+    },
+    "category": {
+      "favorites": "Ulubione",
+      "equipped": "Założone",
+      "inventory": "Ekwipunek",
+      "feature": "Zdolności",
+      "spell": "Zaklęcia",
+      "weapon": "Broń",
+      "equipment": "Wyposażenie",
+      "consumable": "Przedmioty zużywalne",
+      "ammunition": "Amunicja",
+      "other": "Inne",
+      "innate": "Zdolność wrodzona",
+      "atwill": "Bez ograniczeń",
+      "pact": "Magia paktu",
+      "apothecary": "Aptekarz",
+      "spell0": "Sztuczki",
+      "spell1": "Poziom 1",
+      "spell2": "Poziom 2",
+      "spell3": "Poziom 3",
+      "spell4": "Poziom 4",
+      "spell5": "Poziom 5",
+      "spell6": "Poziom 6",
+      "spell7": "Poziom 7",
+      "spell8": "Poziom 8",
+      "spell9": "Poziom 9",
+      "passive": "Pasywne",
+      "general": "Zdolności ogólne"
+    },
+    "keybindings": {
+      "toggle-tray": "Otwórz lub zamknij panel",
+      "toggle-skills": "Rozwiń lub zwiń umiejętności",
+      "toggle-skills-hint": "Położenie listy umiejętności wybiera się w ustawieniach modułu. Skrót otwiera lub zamyka listę u góry albo przewija panel do listy na dole.",
+      "item-drag": "Przytrzymaj, aby przeciągać przedmioty na cele",
+      "item-drag-hint": "Przytrzymaj ten klawisz i przeciągnij przedmiot na żeton, aby użyć go na tym celu.",
+      "toggle-tray-hint": "Otwórz lub zamknij panel akcji",
+      "open-actor-panel": "Otwórz panel postaci",
+      "open-actor-panel-hint": "Otwórz Crux na karcie postaci"
+    },
+    "settings": {
+      "tray-display": "Tryb wyświetlania panelu",
+      "tray-display-auto": "Automatycznie",
+      "tray-display-toggle": "Przełączaj",
+      "tray-display-selected": "Po wybraniu żetonu",
+      "tray-display-always": "Zawsze pokazuj panel",
+      "tray-display-hint": "Wybierz, czy panel ma być stale widoczny, przełączany ręcznie czy otwierany po wybraniu żetonu.",
+      "assume-default-character": "Używaj domyślnej postaci",
+      "assume-default-character-hint": "Gdy nie wybrano żetonu, pokaż panel domyślnej postaci użytkownika.",
+      "icon-size": "Rozmiar ikon",
+      "icon-size-small": "Małe",
+      "icon-size-medium": "Średnie",
+      "icon-size-large": "Duże",
+      "tray-size": "Rozmiar panelu",
+      "tray-size-small": "Mały",
+      "tray-size-medium": "Średni",
+      "tray-size-large": "Duży",
+      "use-control-button": "Dodaj przycisk panelu do narzędzi żetonu",
+      "show-no-uses": "Pokazuj przedmioty bez użyć",
+      "sort-alphabetic": "Sortuj przedmioty alfabetycznie",
+      "show-unprepared-cantrips": "Pokazuj nieprzygotowane sztuczki",
+      "show-spell-dots": "Pokazuj kropki slotów zaklęć",
+      "show-spell-fractions": "Pokazuj liczbę slotów zaklęć",
+      "skill-mode": "Położenie listy umiejętności",
+      "skill-mode-hint": "Dla listy u góry skrót otwiera i zamyka listę. Dla listy na dole przewija do niej panel.",
+      "skill-mode-dropdown": "Zwijana lista u góry",
+      "skill-mode-append": "Na dole panelu",
+      "skills-expanded": "Początkowy stan umiejętności",
+      "skills-expanded-hint": "Wybierz, czy sekcja umiejętności ma być domyślnie rozwinięta.",
+      "main-sections-expanded": "Początkowy stan głównych sekcji",
+      "main-sections-expanded-hint": "Wybierz, czy główne sekcje mają być domyślnie rozwinięte.",
+      "sub-sections-expanded": "Początkowy stan podsekcji",
+      "sub-sections-expanded-hint": "Wybierz, czy podsekcje mają być domyślnie rozwinięte.",
+      "use-tidy5e-sections": "Używaj sekcji Tidy 5e Sheet",
+      "use-tidy5e-sections-hint": "Używaj sekcji Tidy 5e Sheet zamiast standardowych sekcji Crux.",
+      "show-favorites-section": "Pokazuj ulubione",
+      "show-favorites-section-hint": "Pokazuj sekcję ulubionych na panelu.",
+      "show-equipped-section": "Pokazuj założone przedmioty",
+      "show-equipped-section-hint": "Pokazuj sekcję założonych przedmiotów na panelu.",
+      "show-features-section": "Pokazuj zdolności",
+      "show-features-section-hint": "Pokazuj sekcję zdolności na panelu.",
+      "show-spells-section": "Pokazuj zaklęcia",
+      "show-spells-section-hint": "Pokazuj sekcję zaklęć na panelu.",
+      "show-inventory-section": "Pokazuj ekwipunek",
+      "show-inventory-section-hint": "Pokazuj sekcję ekwipunku na panelu.",
+      "show-all-npc-items": "Pokazuj wszystkie przedmioty BN",
+      "show-all-npc-items-hint": "Pokazuj wszystkie przedmioty bohaterów niezależnych, w tym pasywne.",
+      "allow-player-scene-elevation": {
+        "name": "Zezwól graczom na wysokość sceny",
+        "hint": "Pozwól graczom używać wysokości względem sceny. Lista poziomów sceny pozostaje dla nich niedostępna."
+      },
+      "auto-select-first-activity": {
+        "name": "Automatycznie wybieraj pierwszą aktywność",
+        "hint": "Użyj pierwszej aktywności bez okna wyboru. Po wyłączeniu wyborem zarządza system gry."
+      },
+      "clear-targets-on-drag-target": {
+        "name": "Czyść cele przy przeciąganiu",
+        "hint": "Usuń poprzednie cele przed przeciągnięciem przedmiotu na żeton."
+      },
+      "process-compendium-items": {
+        "name": "Przetwarzaj przedmioty w kompendiach",
+        "hint": "Ustawiaj widoczność Crux dla przedmiotów w odblokowanych kompendiach. Wyłącz, jeśli uruchamianie trwa zbyt długo."
+      },
+      "exclude-container-items": {
+        "name": "Ukryj przedmioty w pojemnikach",
+        "hint": "Nie pokazuj na panelu przedmiotów znajdujących się w pojemnikach."
+      }
+    },
+    "item-context": {
+      "show": "Pokaż w Crux",
+      "hide": "Ukryj w Crux"
+    },
+    "ui": {
+      "skills": "Umiejętności",
+      "actions": "Akcje",
+      "actor": "Postać",
+      "hit-points": "Punkty życia",
+      "hit-dice": "Kości wytrzymałości",
+      "saving-throws": "Rzuty obronne",
+      "initiative": "INIC.",
+      "proficiency": "BIEG.",
+      "armor-class": "KP",
+      "health": "PŻ",
+      "passive-perception": "Bierna percepcja",
+      "creature-type": "Typ istoty",
+      "species": "Gatunek",
+      "background": "Pochodzenie",
+      "size": "Rozmiar",
+      "alignment": "Charakter",
+      "senses": "Zmysły",
+      "resistances": "Odporności",
+      "immunities": "Niewrażliwości",
+      "vulnerabilities": "Podatności",
+      "armor": "Pancerze",
+      "weapons": "Broń",
+      "tools": "Narzędzia",
+      "languages": "Języki",
+      "speed": "Szybkość",
+      "damage-immunities": "Niewrażliwości na obrażenia",
+      "condition-immunities": "Niewrażliwości na stany",
+      "damage-modification": "Modyfikacja obrażeń",
+      "habitat": "Środowisko",
+      "treasure": "Skarby",
+      "item-settings": "Ustawienia panelu Crux",
+      "tray-visibility": "Widoczność na panelu",
+      "system-default": "Domyślna",
+      "force-show": "Zawsze pokazuj",
+      "force-hidden": "Zawsze ukrywaj",
+      "tray-visibility-hint": "Określa sposób wyświetlania przedmiotu na panelu Crux.",
+      "rider-activity": "Aktywność dodatkowa",
+      "rider-hint": "Oznacz aktywność jako dodatkową, aby ukryć ją w menu użycia przedmiotu.",
+      "movement-title": "Sposób poruszania",
+      "death-saves": "Rzuty obronne przed śmiercią",
+      "roll-death-save": "Rzuć obronę przed śmiercią",
+      "flip-card": "Odwróć kartę postaci",
+      "movement": {
+        "walk": "Chód",
+        "burrow": "Kopanie",
+        "fly": "Lot",
+        "swim": "Pływanie",
+        "climb": "Wspinaczka",
+        "crawl": "Czołganie",
+        "jump": "Skok",
+        "blink": "Teleportacja"
+      },
+      "movement-short": {
+        "speed": "SZB",
+        "walk": "CHÓD",
+        "burrow": "KOP",
+        "fly": "LOT",
+        "swim": "PŁYW",
+        "climb": "WSP",
+        "crawl": "CZOŁ",
+        "jump": "SKOK",
+        "blink": "TEL"
+      }
+    },
+    "config": {
+      "tray-mode": {
+        "name": "Tryb wyświetlania panelu",
+        "hint": "Wybierz, czy panel ma być stale widoczny, przełączany ręcznie czy otwierany po wybraniu żetonu.",
+        "choices": {
+          "auto": "Automatycznie",
+          "always": "Zawsze pokazuj",
+          "manual": "Przełączaj"
+        }
+      },
+      "assume-default-character": {
+        "name": "Używaj domyślnej postaci",
+        "hint": "Gdy nie wybrano żetonu, pokaż panel domyślnej postaci użytkownika."
+      },
+      "allow-player-scene-elevation": {
+        "name": "Zezwól graczom na wysokość sceny",
+        "hint": "Pozwól graczom używać wysokości względem sceny. Lista poziomów sceny pozostaje dla nich niedostępna."
+      },
+      "show-favorites-section": {
+        "name": "Pokazuj ulubione",
+        "hint": "Pokazuj sekcję ulubionych na panelu."
+      },
+      "show-equipped-section": {
+        "name": "Pokazuj założone przedmioty",
+        "hint": "Pokazuj sekcję założonych przedmiotów na panelu."
+      },
+      "show-features-section": {
+        "name": "Pokazuj zdolności",
+        "hint": "Pokazuj sekcję zdolności na panelu."
+      },
+      "show-spells-section": {
+        "name": "Pokazuj zaklęcia",
+        "hint": "Pokazuj sekcję zaklęć na panelu."
+      },
+      "show-inventory-section": {
+        "name": "Pokazuj ekwipunek",
+        "hint": "Pokazuj sekcję ekwipunku na panelu."
+      },
+      "use-tidy5e-sections": {
+        "name": "Używaj sekcji Tidy 5e Sheet",
+        "hint": "Używaj sekcji Tidy 5e Sheet zamiast standardowych sekcji Crux."
+      },
+      "show-quantity": {
+        "name": "Pokazuj ilość",
+        "hint": "Pokazuj liczbę przedmiotów na panelu."
+      },
+      "show-uses": {
+        "name": "Pokazuj użycia",
+        "hint": "Pokazuj liczbę pozostałych użyć przedmiotów."
+      },
+      "show-no-uses": {
+        "name": "Pokazuj przedmioty bez użyć",
+        "hint": "Pokazuj przedmioty, którym nie pozostały użycia."
+      },
+      "show-unprepared-cantrips": {
+        "name": "Pokazuj nieprzygotowane sztuczki",
+        "hint": "Pokazuj sztuczki, nawet jeśli nie są przygotowane."
+      },
+      "show-all-npc-items": {
+        "name": "Pokazuj wszystkie przedmioty BN",
+        "hint": "Pokazuj wszystkie przedmioty bohaterów niezależnych, w tym pasywne."
+      },
+      "show-spell-dots": {
+        "name": "Pokazuj kropki slotów zaklęć",
+        "hint": "Pokazuj dostępne sloty zaklęć za pomocą kropek."
+      },
+      "show-spell-fractions": {
+        "name": "Pokazuj liczbę slotów zaklęć",
+        "hint": "Pokazuj liczbę dostępnych i maksymalnych slotów zaklęć."
+      },
+      "sort-alphabetic": {
+        "name": "Sortuj przedmioty alfabetycznie",
+        "hint": "Sortuj przedmioty alfabetycznie zamiast według kolejności domyślnej."
+      },
+      "exclude-container-items": {
+        "name": "Ukryj przedmioty w pojemnikach",
+        "hint": "Nie pokazuj na panelu przedmiotów znajdujących się w pojemnikach."
+      },
+      "skill-mode": {
+        "name": "Położenie listy umiejętności",
+        "hint": "Dla listy u góry skrót otwiera i zamyka listę. Dla listy na dole przewija do niej panel.",
+        "choices": {
+          "none": "Nie pokazuj",
+          "dropdown": "Zwijana lista u góry",
+          "append": "Na dole panelu"
+        }
+      },
+      "skills-expanded": {
+        "name": "Początkowy stan umiejętności",
+        "hint": "Wybierz, czy sekcja umiejętności ma być domyślnie rozwinięta.",
+        "choices": {
+          "open": "Rozwinięta",
+          "collapsed": "Zwinięta"
+        }
+      },
+      "main-sections-expanded": {
+        "name": "Początkowy stan głównych sekcji",
+        "hint": "Wybierz, czy główne sekcje mają być domyślnie rozwinięte.",
+        "choices": {
+          "open": "Rozwinięte",
+          "collapsed": "Zwinięte"
+        }
+      },
+      "sub-sections-expanded": {
+        "name": "Początkowy stan podsekcji",
+        "hint": "Wybierz, czy podsekcje mają być domyślnie rozwinięte.",
+        "choices": {
+          "open": "Rozwinięte",
+          "collapsed": "Zwinięte"
+        }
+      },
+      "icon-size": {
+        "name": "Rozmiar ikon",
+        "hint": "Wybierz rozmiar ikon na panelu.",
+        "choices": {
+          "small": "Małe",
+          "medium": "Średnie",
+          "large": "Duże"
+        }
+      },
+      "tray-size": {
+        "name": "Rozmiar panelu",
+        "hint": "Dostosuj szerokość panelu."
+      },
+      "tab-height-multiplier": {
+        "name": "Wysokość kart",
+        "hint": "Dostosuj wysokość przycisków kart Crux."
+      },
+      "health-overlay-enabled": {
+        "name": "Pokazuj wskaźnik punktów życia",
+        "hint": "Pokazuj poziom punktów życia na portrecie postaci."
+      },
+      "health-overlay-direction": {
+        "name": "Kierunek wskaźnika punktów życia",
+        "hint": "Wybierz kierunek wypełniania wskaźnika.",
+        "choices": {
+          "up": "Od dołu do góry",
+          "down": "Od góry do dołu"
+        }
+      },
+      "font-family": {
+        "name": "Czcionka",
+        "hint": "Wybierz czcionkę interfejsu.",
+        "choices": {
+          "modesto": "Modesto Condensed (domyślna)",
+          "signika": "Signika",
+          "roboto": "Roboto Slab",
+          "carolingian-ui": "Carolingian UI",
+          "custom": "Własna czcionka"
+        }
+      },
+      "custom-font-family": {
+        "name": "Własna czcionka",
+        "hint": "Podaj nazwę czcionki dla opcji „Własna czcionka”."
+      },
+      "global-font-size-multiplier": {
+        "name": "Ogólny rozmiar tekstu",
+        "hint": "Dostosuj rozmiar całego tekstu interfejsu. Zalecana wartość to 1,0."
+      },
+      "global-font-scale-rebased": {
+        "name": "Zaktualizowano ogólną skalę tekstu"
+      },
+      "content-text-size-multiplier": {
+        "name": "Rozmiar tekstu zawartości",
+        "hint": "Dostosuj rozmiar opisów przedmiotów, cech i umiejętności. 1,0 oznacza rozmiar domyślny."
+      },
+      "character-name-size-multiplier": {
+        "name": "Rozmiar imienia postaci",
+        "hint": "Dostosuj rozmiar imienia niezależnie od pozostałego tekstu."
+      },
+      "actor-ability-text-size-multiplier": {
+        "name": "Rozmiar tekstu cech postaci",
+        "hint": "Dostosuj rozmiar tekstu przycisków cech na panelu postaci."
+      },
+      "visual-preset": {
+        "name": "Motyw wizualny",
+        "hint": "Wybierz motyw Crux. Zmiana motywu ustawia też jego domyślną przezroczystość panelu.",
+        "choices": {
+          "foundry": "Foundry - ciemny",
+          "foundry-light": "Foundry - jasny",
+          "black-glass": "Czarne szkło",
+          "crimson-knight": "Szkarłatny rycerz",
+          "low-lantern": "Przygaszona latarnia",
+          "arcane-glass": "Magiczne szkło",
+          "silver-steel": "Srebrzysta stal",
+          "emerald-ward": "Szmaragdowa osłona",
+          "paper-lantern": "Papierowa latarnia",
+          "sherbet": "Sorbet",
+          "carolingian-teal": "Karoliński turkus",
+          "royal-blood": "Królewska krew",
+          "dark-sorcery": "Czarna magia",
+          "grass-and-stone": "Trawa i kamień",
+          "gold-and-chocolate": "Złoto i czekolada",
+          "pumpkin-patch": "Dyniowe pole",
+          "plum-purple": "Śliwkowy fiolet",
+          "gambits-blue": "Błękit Gambita"
+        }
+      },
+      "panel-opacity": {
+        "name": "Nieprzezroczystość panelu",
+        "hint": "Dostosuj nieprzezroczystość tła panelu Crux."
+      },
+      "element-opacity": {
+        "name": "Nieprzezroczystość elementów",
+        "hint": "Dostosuj nieprzezroczystość kart, przycisków i zakładek."
+      },
+      "panel-blur": {
+        "name": "Rozmycie panelu",
+        "hint": "Dostosuj rozmycie tła za panelem. Zero wyłącza rozmycie."
+      },
+      "taskbar-compatibility": {
+        "name": "Zgodność z Taskbar",
+        "hint": "Włącz zgodność z modułem Taskbar. Wymaga odświeżenia strony."
+      },
+      "empty-tray-icon": {
+        "name": "Ikona pustego panelu",
+        "hint": "Wybierz ikonę wyświetlaną, gdy panel jest pusty.",
+        "choices": {
+          "fa-thin fa-dragon": "Smok",
+          "fa-brands fa-d-and-d": "D&D",
+          "fa-thin fa-helmet-battle": "Hełm",
+          "fa-thin fa-swords": "Miecze",
+          "fa-thin fa-staff": "Kostur",
+          "fa-thin fa-wand": "Różdżka",
+          "fa-thin fa-paw-claws": "Łapa",
+          "fa-thin fa-mandolin": "Mandolina",
+          "fa-thin fa-bow-arrow": "Łuk",
+          "fa-thin fa-axe-battle": "Topór bojowy",
+          "fa-thin fa-mace": "Buława",
+          "fa-thin fa-hammer-war": "Młot bojowy",
+          "fa-thin fa-dagger": "Sztylet",
+          "fa-thin fa-hand-fist": "Pięść",
+          "fa-thin fa-fire-flame": "Płomień",
+          "fa-thin fa-flask-round-potion": "Mikstura",
+          "fa-thin fa-scroll-old": "Zwój",
+          "fa-thin fa-dungeon": "Podziemia",
+          "fa-thin fa-eye-evil": "Oko",
+          "fa-thin fa-dice-d20": "D20"
+        }
+      },
+      "auto-select-first-activity": {
+        "name": "Automatycznie wybieraj pierwszą aktywność",
+        "hint": "Użyj pierwszej aktywności bez okna wyboru. Po wyłączeniu wyborem zarządza system gry."
+      },
+      "clear-targets-on-drag-target": {
+        "name": "Czyść cele przy przeciąganiu",
+        "hint": "Usuń poprzednie cele przed przeciągnięciem przedmiotu na żeton."
+      },
+      "process-compendium-items": {
+        "name": "Przetwarzaj przedmioty w kompendiach",
+        "hint": "Ustawiaj widoczność Crux dla przedmiotów w odblokowanych kompendiach. Wyłącz, jeśli uruchamianie trwa zbyt długo."
+      }
+    }
+  }
+}
