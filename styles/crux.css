@@ -1230,6 +1230,11 @@ body.crlngn-ui .crux__tab.is-active {
     mask-image: url("../img/shove.svg");
 }
 
+.crux__unarmed-icon {
+    font-size: 19px;
+    opacity: 0.8;
+}
+
 .crux__svg-icon--aura {
     -webkit-mask-image: url("../img/aura.svg");
     mask-image: url("../img/aura.svg");
