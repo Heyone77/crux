@@ -50,6 +50,10 @@ Designed to complement Foundry's left-side interface, Crux keeps the character's
 https://github.com/Heyone77/crux/releases/latest/download/module.json
 ```
 
+## Publishing a release
+
+Push a version tag (for example `2.2.7`) to run the release workflow. The workflow builds `module.zip` and publishes it together with `module.json`. GitHub Actions must first be enabled for this fork. To rebuild an existing tag, open Actions, select **Release Creation**, choose **Run workflow**, and enter that tag.
+
 ## Features
 
 ### Panel Tabs
