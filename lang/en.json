@@ -1,7 +1,4 @@
 {
-    "crux.warning.basic-action-unavailable": "Crux: {name} - the CPR 2024 action is unavailable.",
-    "crux.action.shove-prone": "Knock prone",
-    "crux.action.shove-push": "Push away",
     "crux.warning.dropOnToken": "Drop the item on a token to use it",
     "crux.warning.holdTargetKey": "Hold the targeting key while dropping to use the item",
     "crux.warning.drop-no-permission": "You do not have permission to add items to {name}.",
@@ -11,7 +8,11 @@
     "crux.error.itemNotFound": "Could not find the dragged item",
     "crux.error.useItemFailed": "Error using item on target",
     "crux": {
+        "warning": { "basic-action-unavailable": "Crux: {name} - the CPR 2024 action is unavailable." },
         "action": {
+            "unarmed-strike": "Unarmed Strike",
+            "shove-prone": "Knock prone",
+            "shove-push": "Push away",
             "dash": "Dash",
             "disengage": "Disengage",
             "dodge": "Dodge",

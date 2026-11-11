@@ -1,15 +1,15 @@
-const ACTIONS = new Set(["dash", "disengage", "dodge", "hide", "grapple", "shove"]);
+const ACTIONS = new Set(["dash", "disengage", "dodge", "hide", "grapple", "shove", "unarmed-strike"]);
 
 export async function prepareBasicAction(actionId, pack) {
     if (!pack || !ACTIONS.has(actionId)) return null;
-    const name = ["grapple", "shove"].includes(actionId) ? "unarmed strike" : actionId;
+    const name = ["grapple", "shove", "unarmed-strike"].includes(actionId) ? "unarmed strike" : actionId;
     const index = await pack.getIndex();
     const entry = index.find(item => item.name?.toLowerCase() === name);
     if (!entry) return null;
     const document = await pack.getDocument(entry._id);
     if (!document) return null;
     const data = document.toObject();
-    if (name === "unarmed strike") {
+    if (name === "unarmed strike" && actionId !== "unarmed-strike") {
         const identifiers = actionId === "grapple" ? ["grapple"] : ["shove-prone", "shove-push"];
         const activities = Object.entries(data.system?.activities ?? {}).filter(([, activity]) =>
             identifiers.includes(activity.midiProperties?.identifier));
@@ -25,11 +25,14 @@ export async function useCompendiumBasicAction(actionId, actor) {
     if (!game.modules.get("cat")?.active || !game.modules.get("chris-premades")?.active || !roll) return false;
     const data = await prepareBasicAction(actionId, pack);
     if (!data) return false;
-    if (actionId === "shove") {
+    if (actionId === "shove" || actionId === "unarmed-strike") {
         const entries = Object.entries(data.system.activities);
         const selection = await foundry.applications.api.DialogV2.wait({
-            window: { title: game.i18n.localize("crux.action.shove") },
-            buttons: entries.map(([id, activity]) => ({ action: id, label: game.i18n.localize(`crux.action.${activity.midiProperties.identifier}`), callback: () => id })),
+            window: { title: game.i18n.localize(`crux.action.${actionId}`) },
+            buttons: entries.map(([id, activity]) => {
+                const key = `crux.action.${activity.midiProperties?.identifier}`;
+                return { action: id, label: game.i18n.has(key) ? game.i18n.localize(key) : activity.name, callback: () => id };
+            }),
             rejectClose: false
         });
         if (!selection) return true;

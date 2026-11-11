@@ -60,7 +60,7 @@ export default class CruxItemInteractionController {
             if (!actor) return;
 
             const actionName = game.i18n.localize(`crux.action.${actionId}`);
-            const matchingItem = actor.items.find(item => {
+            const matchingItem = actionId !== "unarmed-strike" && actor.items.find(item => {
                 const name = item.name.toLowerCase();
                 return name === actionId.toLowerCase() || name === actionName.toLowerCase();
             });
