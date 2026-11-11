@@ -1,5 +1,6 @@
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 import CruxAnchoredFlyout from "../utils/CruxAnchoredFlyout.js";
+import CruxDnd5eAccess from "../runtime/dnd5e/CruxDnd5eAccess.js";
 
 export default class CruxEffectsAppV2 extends HandlebarsApplicationMixin(ApplicationV2) {
     static activeInstance = null;
@@ -95,13 +96,21 @@ export default class CruxEffectsAppV2 extends HandlebarsApplicationMixin(Applica
             return;
         }        
         const statusId = event.currentTarget.dataset.statusId;
-        await this.actor.toggleStatusEffect(statusId, {overlay});
+        const hasLevels = CruxDnd5eAccess.supportsConditionLevels()
+            && Number.isFinite(CONFIG.DND5E?.conditionTypes?.[statusId]?.levels);
+        // In dnd5e 6, toggling a leveled condition applies a delta. A negative
+        // delta without an existing effect falls through to the core toggle.
+        if (hasLevels && overlay && !this.actor.effects.some(effect =>
+            effect.statuses.has(statusId) && effect.system?.level > 0
+        )) return;
+        const options = hasLevels ? { levels: overlay ? -1 : 1 } : { overlay };
+        await this.actor.toggleStatusEffect(statusId, options);
         this.render();
     }
     _onContextMenu(event) {
         event.preventDefault();
         event.stopPropagation();
-        this._onToggleEffect(event, {overlay: true});
+        return this._onToggleEffect(event, {overlay: true});
     }    
     async close(options = {}) {
         if (options?.closeKey) {

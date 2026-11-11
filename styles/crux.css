@@ -3050,3 +3050,40 @@ button.crux__action-stat-tab:focus:not(:hover) {
 .crux__container, .crux__empty-tray {
     transition: bottom 0.2s ease-in-out !important;
 }
+
+/* Injected item-sheet settings must fit both dnd5e and Tidy content panes. */
+fieldset.crux-tray-settings {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    flex: 0 0 auto;
+    grid-column: 1 / -1;
+    text-transform: none;
+}
+
+.crux-tray-settings .crux-tray-visibility {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+    text-align: start;
+}
+
+.crux-tray-settings .crux-tray-visibility > label,
+.crux-tray-settings .crux-tray-visibility > .form-fields {
+    flex: 1 1 10rem;
+    min-width: 0;
+}
+
+.crux-tray-settings .crux-tray-visibility select {
+    width: 100%;
+    min-width: 0;
+}
+
+.crux-tray-settings .crux-tray-visibility > .hint {
+    flex: 0 0 100%;
+    margin: 0;
+    text-transform: none;
+}

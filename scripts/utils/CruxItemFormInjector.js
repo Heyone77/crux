@@ -6,6 +6,12 @@ export default class CruxItemFormInjector {
             this._onRenderItemSheet(app, html);
         });
 
+        Hooks.on("renderApplicationV2", (app, html) => {
+            if ((app.document || app.object)?.documentName === "Item") {
+                this._onRenderItemSheet(app, html);
+            }
+        });
+
         Hooks.on("renderActivitySheet", (app, options) => {
             const html = app.element;
             if (!html) return;
@@ -14,6 +20,10 @@ export default class CruxItemFormInjector {
         Hooks.on("renderApplication", (app, options) => {
             const html = app.element;
             if (!html) return;
+            // Tidy item sheets do not necessarily inherit ItemSheet5e.
+            if ((app.document || app.object)?.documentName === "Item") {
+                this._onRenderItemSheet(app, html);
+            }
             if (html.classList?.contains("activity") ||
                 html.querySelector?.(".activity")) {
                 this._onRenderActivitySheet(app, html);
@@ -96,9 +106,14 @@ export default class CruxItemFormInjector {
     }
 
     static _onRenderItemSheet(app, html) {
+        if (!html?.querySelector) html = html?.[0];
+        if (!html?.querySelector) return;
+        // AppV2 may render the navigation before the details pane. Never use
+        // an unrestricted [data-tab] fallback: it can select the nav button.
         const detailsTab = html.querySelector('section.tab[data-tab="details"]')
-                        || html.querySelector('.tab.details')
-                        || html.querySelector('[data-tab="details"]');
+                        || html.querySelector('div.tab[data-tab="details"]')
+                        || html.querySelector('section.tab.details, div.tab.details')
+                        || html.querySelector('[role="tabpanel"][data-tab-contents-for="details"]');
 
         if (!detailsTab) {
             return;
@@ -124,12 +139,12 @@ export default class CruxItemFormInjector {
         }
 
         const fieldsetHtml = `
-            <fieldset>
+            <fieldset class="crux-tray-settings">
                 <legend>Crux Tray Settings</legend>
                 <div class="form-group crux-tray-visibility">
                     <label>Tray Visibility</label>
                     <div class="form-fields">
-                        <select name="flags.crux.trayVisibility">
+                        <select name="flags.crux.trayVisibility" aria-label="Tray Visibility">
                             <option value="default" ${visibilitySetting === "default" ? "selected" : ""}>System Default</option>
                             <option value="show" ${visibilitySetting === "show" ? "selected" : ""}>Force Show</option>
                             <option value="hide" ${visibilitySetting === "hide" ? "selected" : ""}>Force Hidden</option>

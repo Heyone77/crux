@@ -2,6 +2,19 @@
 
 All notable changes to the CRUX module will be documented in this file.
 
+## [2.2.6] - Heyone77 fork
+
+### Fixed
+- Keep item tray visibility settings inside the Details content pane instead of injecting them into navigation during partial renders; support Tidy's details pane and constrain the settings layout to its available width.
+- Use level increases/decreases for dnd5e 6 leveled conditions, including exhaustion, and prevent right-click at level zero from creating a condition.
+- Pass activity and modern item dialog configuration through the system's dialog argument while retaining legacy item options.
+- Refresh an open status flyout when its actor's Active Effects change.
+- Read dnd5e 6 movement speeds, including custom types, with fallback to older movement data.
+- Remove references to the two compendium packs absent from both the upstream repository and its 2.2.5 release archive.
+
+### Internal
+- Added compatibility regression tests runnable with `node --test` and an in-world validation checklist in `docs/dnd5e-6-validation.md`.
+
 ## [2026-06-18] [2.2.5]
 
 ### Added

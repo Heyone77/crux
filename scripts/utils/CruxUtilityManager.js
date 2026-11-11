@@ -171,9 +171,8 @@ export default class CruxUtils {
                 
                 const result = activity.use({ 
                     event,
-                    configure,
                     createScrollItem: false 
-                });
+                }, { configure });
                 return result;
             }
         }
@@ -190,9 +189,8 @@ export default class CruxUtils {
             else setTimeout(() => CruxUtils._finishItemActivation(), 500);
             const result = activity.use({ 
                 event,
-                configure,
                 createScrollItem: false 
-            });
+            }, { configure });
             return result;
         }        
         if (activities.length > 0 && event?.fromCrux) {
@@ -204,9 +202,8 @@ export default class CruxUtils {
                 else setTimeout(() => CruxUtils._finishItemActivation(), 500);
                 const result = firstActivity.use({ 
                     event,
-                    configure,
                     createScrollItem: false 
-                });
+                }, { configure });
                 return result;
             }
         }        
@@ -214,15 +211,18 @@ export default class CruxUtils {
             legacy: false,
             event: event,
             chooseActivity: false,
-            configure,
         };
+        // Pre-activity dnd5e versions take dialog options in the first argument.
+        if (!CruxDnd5eAccess.isModernDnd5e()) useOptions.configure = configure;
         if (event?.createScrollItem !== undefined) {
             useOptions.createScrollItem = event.createScrollItem;
         }
         const placesTemplate = CruxDragDropUtils.itemPlacesTemplate(item);
         if (placesTemplate) CruxUtils._watchTemplatePlacement();
         else setTimeout(() => CruxUtils._finishItemActivation(), 500);
-        const result = item.use(useOptions);
+        const result = CruxDnd5eAccess.isModernDnd5e()
+            ? item.use(useOptions, { configure })
+            : item.use(useOptions);
         return result;
     }
 }

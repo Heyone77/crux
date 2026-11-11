@@ -363,6 +363,10 @@ export default class CruxHooksManager {
             game.crux.app.render();
             const token = canvas.tokens?.controlled.find(t => t.actor === actor || t.actor?.uuid === actor.uuid)
                 ?? actor.getActiveTokens?.()[0];
+            const effectsActor = CruxEffectsAppV2.activeInstance?.actor;
+            if (effectsActor === actor || (actor.uuid && effectsActor?.uuid === actor.uuid)) {
+                CruxEffectsAppV2.updateInstance(actor, token);
+            }
             if (token) {
                 CruxElevationAppV2.updateInstance(actor, token);
                 CruxMovementAppV2.updateInstance(actor, token);

@@ -305,19 +305,20 @@ export default class CruxDnd5eSystemAdapter {
     }
 
     getMovementAmount(action, movement) {
-        const walk = Number(movement.walk ?? movement.speed ?? 0) || 0;
+        const speeds = movement.speeds ?? movement;
+        const walk = Number(speeds.walk ?? movement.speed ?? 0) || 0;
         const halfWalk = walk ? Math.floor(walk / 2) : undefined;
         switch (action) {
-            case "speed": return movement.speed ?? movement.walk;
-            case "walk": return movement.walk;
-            case "burrow": return movement.burrow;
-            case "fly": return movement.fly;
-            case "swim": return movement.swim || halfWalk;
-            case "climb": return movement.climb || halfWalk;
+            case "speed": return movement.speed ?? speeds.walk;
+            case "walk": return speeds.walk;
+            case "burrow": return speeds.burrow;
+            case "fly": return speeds.fly;
+            case "swim": return speeds.swim || halfWalk;
+            case "climb": return speeds.climb || halfWalk;
             case "crawl": return halfWalk;
-            case "jump": return movement.jump;
+            case "jump": return speeds.jump;
             case "blink": return Infinity;
-            default: return movement[action];
+            default: return speeds[action];
         }
     }
 
@@ -721,11 +722,12 @@ export default class CruxDnd5eSystemAdapter {
     }
 
     _getNpcSpeedTags(movement) {
-        const speed = movement.speed ?? movement.walk;
+        const speeds = movement.speeds ?? movement;
+        const speed = movement.speed ?? speeds.walk;
         const tags = [];
         if (speed) tags.push({ label: "Speed", value: speed });
         for (const key of ["walk", "burrow", "climb", "fly", "swim"]) {
-            const value = Number(movement[key]) || 0;
+            const value = Number(speeds[key]) || 0;
             if (!value || value === speed && key === "walk") continue;
             tags.push({ label: key.titleCase?.() ?? key, value });
         }

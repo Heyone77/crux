@@ -106,31 +106,32 @@ export default class CruxMovementAppV2 extends HandlebarsApplicationMixin(Applic
 
     _getMovementAmount(action) {
         const movement = CruxDnd5eAccess.getMovement(this.actor);
-        const walk = Number(movement.walk ?? movement.speed ?? 0) || 0;
+        const speeds = movement.speeds ?? movement;
+        const walk = Number(speeds.walk ?? movement.speed ?? 0) || 0;
         const halfWalk = walk ? Math.floor(walk / 2) : undefined;
         switch (action) {
             case null:
             case undefined:
             case "":
-                return movement.speed ?? movement.walk;
+                return movement.speed ?? speeds.walk;
             case "walk":
-                return movement.walk;
+                return speeds.walk;
             case "burrow":
-                return movement.burrow;
+                return speeds.burrow;
             case "fly":
-                return movement.fly;
+                return speeds.fly;
             case "swim":
-                return movement.swim || halfWalk;
+                return speeds.swim || halfWalk;
             case "climb":
-                return movement.climb || halfWalk;
+                return speeds.climb || halfWalk;
             case "crawl":
                 return halfWalk;
             case "jump":
-                return movement.jump;
+                return speeds.jump;
             case "blink":
                 return Infinity;
             default:
-                return movement[action];
+                return speeds[action];
         }
     }
 

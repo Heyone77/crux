@@ -58,6 +58,10 @@ export default class CruxDnd5eAccess {
         return major >= 4;
     }
 
+    static supportsConditionLevels() {
+        return game.system.id === "dnd5e" && parseInt(game.system.version, 10) >= 6;
+    }
+
     static spellSlotUpdatePath(group) {
         return `system.spells.${group}.value`;
     }

@@ -5,6 +5,7 @@
 # CRUX
 *(Combat Ready User Xperience)*
 
+This is [Heyone77's maintained fork](https://github.com/Heyone77/crux) of [Relic's Crux](https://github.com/Relic-Repo/crux). It keeps the `crux` module ID so existing settings remain compatible.
 
 <p align="center">
   <img src="docs/images/crux-tray-preview-3.png" alt="Crux Actions and Actor panel previews" width="100%">
@@ -14,7 +15,7 @@
   <img src="https://img.shields.io/badge/Foundry_VTT-v13%2B-orange" alt="Foundry VTT v13+">
   <img src="https://img.shields.io/badge/Verified-v14-blue" alt="Verified Foundry v14">
   <img src="https://img.shields.io/badge/dnd5e-3.0%2B-red" alt="dnd5e 3.0+">
-  <img src="https://img.shields.io/badge/Latest-2.2.5-brightgreen" alt="Latest version 2.2.5">
+  <img src="https://img.shields.io/badge/Latest-2.2.6-brightgreen" alt="Latest version 2.2.6">
   <img src="https://img.shields.io/badge/Manifest-module.json-informational" alt="Manifest">
   <img src="https://img.shields.io/badge/🚪%20Enter%20the%20Archive-Discord-5865F2?style=for-the-badge" />
 </p>
@@ -46,7 +47,7 @@ Designed to complement Foundry's left-side interface, Crux keeps the character's
 **Install Manifest**
 
 ```text
-https://github.com/Relic-Repo/crux/releases/latest/download/module.json
+https://github.com/Heyone77/crux/releases/latest/download/module.json
 ```
 
 ## Features
@@ -115,7 +116,7 @@ https://github.com/Relic-Repo/crux/releases/latest/download/module.json
 3. Search for "CRUX" or paste this manifest URL:
 
 ```text
-https://github.com/Relic-Repo/crux/releases/latest/download/module.json
+https://github.com/Heyone77/crux/releases/latest/download/module.json
 ```
 
 ## Compatibility
