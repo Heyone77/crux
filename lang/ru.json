@@ -1,4 +1,7 @@
 {
+    "crux.warning.basic-action-unavailable": "Crux: {name} - действие CPR 2024 недоступно.",
+    "crux.action.shove-prone": "Сбить с ног",
+    "crux.action.shove-push": "Оттолкнуть",
   "crux.warning.dropOnToken": "Перетащите предмет на токен, чтобы использовать его",
   "crux.warning.holdTargetKey": "Удерживайте клавишу выбора цели, перетаскивая предмет",
   "crux.warning.drop-no-permission": "У вас нет прав на добавление предметов персонажу {name}.",

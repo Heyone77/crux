@@ -1,4 +1,7 @@
 {
+    "crux.warning.basic-action-unavailable": "Crux: {name} - the CPR 2024 action is unavailable.",
+    "crux.action.shove-prone": "Knock prone",
+    "crux.action.shove-push": "Push away",
     "crux.warning.dropOnToken": "Drop the item on a token to use it",
     "crux.warning.holdTargetKey": "Hold the targeting key while dropping to use the item",
     "crux.warning.drop-no-permission": "You do not have permission to add items to {name}.",

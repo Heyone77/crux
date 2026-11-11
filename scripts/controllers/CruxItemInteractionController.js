@@ -4,6 +4,7 @@ import CruxDnd5eAccess from "../runtime/dnd5e/CruxDnd5eAccess.js";
 import CruxInlineEditor from "../utils/CruxInlineEditor.js";
 import CruxTrayResolver from "../utils/CruxTrayResolver.js";
 import CruxUtils from "../utils/CruxUtilityManager.js";
+import { useCompendiumBasicAction } from "../utils/CruxBasicActions.js";
 
 export default class CruxItemInteractionController {
     constructor(app) {
@@ -68,6 +69,8 @@ export default class CruxItemInteractionController {
                 event.fromCrux = true;
                 await CruxUtils.activateItem(matchingItem.uuid, null, event);
             } else {
+                if (game.system.id === "dnd5e" && await useCompendiumBasicAction(actionId, actor)) return;
+                if (game.system.id === "dnd5e") ui.notifications.warn(game.i18n.format("crux.warning.basic-action-unavailable", { name: actionName }));
                 await ChatMessage.create({
                     user: game.user.id,
                     speaker: ChatMessage.getSpeaker({ actor }),

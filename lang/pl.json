@@ -1,4 +1,7 @@
 {
+    "crux.warning.basic-action-unavailable": "Crux: {name} - akcja CPR 2024 jest niedostępna.",
+    "crux.action.shove-prone": "Powalić",
+    "crux.action.shove-push": "Odepchnąć",
   "crux.warning.dropOnToken": "Przeciągnij przedmiot na żeton, aby go użyć",
   "crux.warning.holdTargetKey": "Przytrzymaj klawisz celowania podczas przeciągania przedmiotu",
   "crux.warning.drop-no-permission": "Nie masz uprawnień do dodawania przedmiotów do {name}.",
